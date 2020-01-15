@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/layui/css/layui.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./lib/cesium/Build/Cesium/Cesium.js"></script>
+    <link rel="stylesheet" href="./lib/cesium/Build/Cesium/Widgets/widgets.css">
+    <link rel="stylesheet" href="./lib/zTree_v3-3.5.41/css/zTreeStyle/zTreeStyle.css">
+</head>
+
+<body>
+
+<header class="drag">
+    <span class="no-drag">Cesium实验室</span>
+    <div class="toolbar no-drag">
+        <svg class="icon" aria-hidden="true" onclick="changeWindow('setting')">
+            <use xlink:href="#icon-setting"></use>
+        </svg>
+
+        <svg class="icon" aria-hidden="true" onclick="changeWindow('min')">
+            <use xlink:href="#icon-min"></use>
+        </svg>
+        <svg class="icon" aria-hidden="true" onclick="changeWindow('max')">
+            <use xlink:href="#icon-max"></use>
+        </svg>
+        <svg class="icon" aria-hidden="true" onclick="changeWindow('close')">
+            <use xlink:href="#icon-close"></use>
+        </svg>
+    </div>
+</header>
+<nav>
+    <div class="layui-tab">
+        <ul class="layui-tab-title">
+            <li class="layui-this">漫游</li>
+            <li>试图</li>
+            <li>影像</li>
+            <li>瓦片</li>
+            <li>地形</li>
+            <li>分析</li>
+            <li>效果</li>
+            <li>标绘</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+
+                <div class="menuBar">
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">场景</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-save"/>
+                            </svg>
+                        </div>
+                        <span>保存</span>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">视角</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-earth"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-china"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-custom"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">自动飞行</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-center"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-camera"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">交互模式</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-moren"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-firstperson"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-i"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="layui-tab-item">
+
+                <div class="menuBar">
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">场景</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-save"/>
+                            </svg>
+                        </div>
+                        <span>保存</span>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">视角</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-earth"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-china"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-custom"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">自动飞行</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-center"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-camera"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">交互模式</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-moren"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-firstperson"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-i"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="layui-tab-item">
+
+                <div class="menuBar">
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">场景</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-save"/>
+                            </svg>
+                        </div>
+                        <span>保存</span>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">视角</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-earth"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-china"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-custom"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">自动飞行</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-center"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-camera"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">交互模式</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-moren"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-firstperson"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-i"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="layui-tab-item">
+
+                <div class="menuBar">
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">场景</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-save"/>
+                            </svg>
+                        </div>
+                        <span>保存</span>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">视角</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-earth"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-china"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-custom"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">自动飞行</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-center"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-camera"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">交互模式</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-moren"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-firstperson"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-i"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="layui-tab-item">
+
+                <div class="menuBar">
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">场景</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-save"/>
+                            </svg>
+                        </div>
+                        <span>保存</span>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">视角</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-earth"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-china"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-custom"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">自动飞行</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-center"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-camera"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">交互模式</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-moren"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-firstperson"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-i"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="layui-tab-item">
+
+                <div class="menuBar">
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">场景</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-save"/>
+                            </svg>
+                        </div>
+                        <span>保存</span>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">视角</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-earth"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-china"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-custom"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">自动飞行</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-center"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-camera"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">交互模式</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-moren"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-firstperson"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-i"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="layui-tab-item">
+
+                <div class="menuBar">
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">场景</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-save"/>
+                            </svg>
+                        </div>
+                        <span>保存</span>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">视角</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-earth"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-china"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-custom"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">自动飞行</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-center"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-camera"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">交互模式</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-moren"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-firstperson"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-i"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="layui-tab-item">
+
+                <div class="menuBar">
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">场景</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-save"/>
+                            </svg>
+                        </div>
+                        <span>保存</span>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">视角</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-earth"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-china"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-custom"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">自动飞行</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-center"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-camera"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">交互模式</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-moren"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-firstperson"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-i"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="layui-tab-item">
+
+                <div class="menuBar">
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">场景</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-save"/>
+                            </svg>
+                        </div>
+                        <span>保存</span>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">视角</span>
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-earth"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-china"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-custom"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">自动飞行</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-center"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-camera"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="svg-warpper">
+                        <span class="layui-badge layui-bg-black">交互模式</span>
+
+                        <div class="icons">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-moren"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-revolve"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-firstperson"/>
+                            </svg>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-i"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</nav>
+<main>
+
+
+    <div id="cesiumContainer"></div>
+</main>
+
+
+</body>
+
+<div id="aaaa" class="layui-model">
+    <ul id="treeDemo" class="ztree"></ul>
+</div>
+
+<script src="./lib/iconfont/iconfont.js"></script>
+<script src="./lib/layui/layui.js"></script>
+<script src="./lib/zTree_v3-3.5.41/js/jquery-1.4.4.min.js"></script>
+<script src="./lib/zTree_v3-3.5.41/js/jquery.ztree.all.min.js"></script>
+<script src="./js/common.js"></script>
+<script>
+
+    let Layer3D = {}
+    let {ipcRenderer, remote} = require('electron')
+    let isMax = false
+    Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4MzJlOTlkMS00NDk1LTQ5OWQtOWNhMy01NjgyMDdlNmJjOWMiLCJpZCI6MTg0MzEsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1NzM3OTgwMDR9.kJuWRLeWtdVS_ESyxMLDXiMa6uaYQfPQ9-zxxbJJztE";
+
+    let viewer = new Cesium.Viewer("cesiumContainer");
+    var zTreeObj;
+    // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
+    var setting = {
+
+        check: {
+            enable: true,
+            chkStyle: "checkbox"
+        },
+        edit: {},
+        view: {
+            showIcon: false,
+            showLine: false,
+            showTitle: false,
+            selectedMulti: true,
+            addHoverDom: addHoverDom,
+            removeHoverDom: removeHoverDom,
+        }, callback: {
+            onDblClick: zTreeOnDblClick
+        }
+    };
+
+    function zTreeOnDblClick(event, treeId, treeNode) {
+
+        show3D(treeNode.key)
+    }
+
+    function show3D(key) {
+        if (!Layer3D[key]) {
+
+            let tileset = viewer.scene.primitives.add(
+                new Cesium.Cesium3DTileset({
+                    url: `http://localhost:${localStorage.getItem('port') + '/' + key}/tileset.json`
+                })
+            );
+
+            Layer3D[key] = tileset
+        }
+        viewer.zoomTo(Layer3D[key])
+    }
+
+    function addHoverDom(treeId, treeNode) {
+        var aObj = $("#" + treeNode.tId + "_a");
+        if ($("#diyBtn_" + treeNode.id).length > 0) return;
+        var editStr = "<button type='button' class='diyBtn1' id='diyBtn_" + treeNode.id
+            + "' title='" + treeNode.name + "' onfocus='this.blur();'>  <i class=\"layui-icon layui-icon-edit\"></i>   </button>"
+            + "<button type='button' class='diyBtn1' id='diyBtn_space_" + treeNode.id
+            + "' title='" + treeNode.name + "' onfocus='this.blur();'>  <i class=\"layui-icon layui-icon-add-circle\"></i>   </button>"
+        aObj.append(editStr);
+        var btn = $("#diyBtn_" + treeNode.id);
+        if (btn) btn.bind("click", function () {
+            zTreeObj.editName(treeNode)
+        });
+
+        var addBtn = $('#diyBtn_space_' + treeNode.id);
+        if (addBtn) addBtn.bind('click', function () {
+            let entity = Layer3D[treeNode.key]
+
+            // viewer.entities.remove()
+            treeNode.key = uuid()
+
+            zTreeObj.updateNode(treeNode)
+            ipcRenderer.send('add3D', treeNode.key)
+        })
+    };
+
+    function removeHoverDom(treeId, treeNode) {
+        $("#diyBtn_" + treeNode.id).unbind().remove();
+        $("#diyBtn_space_" + treeNode.id).unbind().remove();
+    };
+
+    function addItem() {
+
+        let id = uuid()
+        zTreeObj.addNodes(null, {name: '新的节点', id: id, key: uuid()});
+    }
+
+    // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
+    var zNodes = [];
+    $(document).ready(function () {
+        zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+    });
+
+
+    /* **********************************************************************************************************/
+
+    ipcRenderer.on('port', (event, arg) => {
+
+        localStorage.setItem('port', arg)
+
+    })
+
+
+    ipcRenderer.on('finsh3D', (event, arg) => {
+        show3D(arg)
+    })
+
+    ipcRenderer.on('aaa', (event, data) => {
+
+        console.log(event)
+        console.log(data)
+    })
+
+    function changeWindow(type) {
+        if (type === 'max') {
+            // ipcRenderer.send('changeWindow', {winCode: 'main', type: type})
+            if (isMax) {
+                remote.getCurrentWindow().unmaximize()
+                isMax = false
+                document.querySelector('.cesium-widget canvas').style.height = '400px'
+            } else {
+                document.querySelector('.cesium-widget canvas').style.height = (890) + 'px'
+                isMax = true
+                remote.getCurrentWindow().maximize()
+            }
+
+
+            //
+
+            return
+        } else if (type === 'min') {
+            remote.getCurrentWindow().minimize()
+        } else if (type === 'close') {
+            remote.getCurrentWindow().close()
+        }
+        return;
+
+        ipcRenderer.send('changeWindow', {winCode: 'main', type: type})
+    }
+
+
+    layui.use(['element', 'layer'], function () {
+        let element = layui.element;
+        let layer = layui.layer
+        let $ = layui.jquery
+        layer.open({
+            type: 1,
+            skin: 'myskin'
+
+            , content: $('#aaaa')
+            , btn: '新增项目'
+            , btnAlign: 'c' //按钮居中
+            , shade: 0 //不显示遮罩
+            , yes: function () {
+                addItem()
+            }
+        });
+    });
+
+
+</script>
+
+</html>

@@ -1,0 +1,125 @@
+header {
+    padding: 6px;
+    background: #000000;
+    color: #45E2F0;
+    font-weight: bold;
+    font-size: 18px;
+    background: url("../img/back.png");
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+svg:hover {
+    cursor: pointer;
+}
+
+body {
+    overflow: hidden;
+    background: #060606;
+}
+
+
+.menuBar {
+
+    display: flex;
+    flex-direction: row;
+}
+
+.svg-warpper {
+
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #474747;
+    padding-right: 20px;
+    margin-left: 20px;
+    align-items: center;
+}
+
+.svg-warpper span {
+
+    color: #ffffff;
+}
+
+.icon {
+    font-size: 37px;
+    color: #474747;
+    margin: 0 15px;
+}
+
+.svg-warpper .icon:hover {
+    fill: #1FFFFF;
+}
+
+#cesiumContainer {
+
+    /*height: auto;*/
+}
+
+header .icon {
+
+    color: #528284;
+}
+
+/*=============================layui=================================================================*/
+
+.layui-badge {
+    margin-bottom: 5px;
+    max-width: 50px;
+    margin-right: auto;
+}
+
+.layui-tab-title {
+    background-color: #474747;
+}
+
+.layui-tab {
+    margin: 0;
+}
+
+.layui-tab-title {
+    border: 0;
+}
+
+.layui-tab-title .layui-this {
+    color: #ffffff;
+    background: #6B6B6B;
+}
+
+.layui-tab-title .layui-this:after {
+    border-width: 0;
+}
+
+.layui-tab-content {
+    background-color: #6B6B6B;
+}
+
+.layui-tab-title li {
+    color: #ffffff;
+}
+
+.layui-layer-title {
+    background: #393939 !important;
+    color: #FFFFFF !important;
+}
+
+/*=============================layui=================================================================*/
+
+.layui-model {
+    max-height: 600px;
+    overflow: auto;
+}
+
+
+.ztree li a{
+    color: #FFFFFF !important;
+}
+
+.ztree li a.curSelectedNode {
+    background: none !important;
+}
+
+.ztree li {
+ padding: 8px !important;
+
+}

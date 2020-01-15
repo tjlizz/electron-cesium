@@ -1,0 +1,107 @@
+{
+  "id": "1589988",
+  "name": "electron",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "158438",
+      "name": "中国",
+      "font_class": "china",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "192230",
+      "name": "地球",
+      "font_class": "earth",
+      "unicode": "eb86",
+      "unicode_decimal": 60294
+    },
+    {
+      "icon_id": "1340588",
+      "name": "保存",
+      "font_class": "save",
+      "unicode": "e680",
+      "unicode_decimal": 59008
+    },
+    {
+      "icon_id": "2201086",
+      "name": "旋转",
+      "font_class": "center",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "3937855",
+      "name": "第一人称视角",
+      "font_class": "firstperson",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "4158236",
+      "name": "相机",
+      "font_class": "camera",
+      "unicode": "e6b5",
+      "unicode_decimal": 59061
+    },
+    {
+      "icon_id": "4860739",
+      "name": "最小化",
+      "font_class": "min",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "6373083",
+      "name": "关  闭",
+      "font_class": "close",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "6413267",
+      "name": "最大化",
+      "font_class": "max",
+      "unicode": "e68f",
+      "unicode_decimal": 59023
+    },
+    {
+      "icon_id": "6772955",
+      "name": "自定义",
+      "font_class": "custom",
+      "unicode": "e676",
+      "unicode_decimal": 58998
+    },
+    {
+      "icon_id": "6812601",
+      "name": "旋转",
+      "font_class": "revolve",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "8338471",
+      "name": "默认",
+      "font_class": "moren",
+      "unicode": "e823",
+      "unicode_decimal": 59427
+    },
+    {
+      "icon_id": "8581762",
+      "name": "i",
+      "font_class": "i",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "9278750",
+      "name": "设 置",
+      "font_class": "setting",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    }
+  ]
+}
